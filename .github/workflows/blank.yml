@@ -31,4 +31,5 @@ jobs:
           set where iisreset
           rem powershell -ExecutionPolicy Bypass .\tools\deploy-site.ps1 -site_name test-site -app_name test-site -site_hostname test-site -code_folder ..\site
           choco list --source windowsfeatures
+          curl -vvvv http://localhost
         shell: cmd
