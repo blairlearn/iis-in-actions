@@ -29,5 +29,5 @@ jobs:
       - name: Run a multi-line script
         run: |
           where iisreset
-          powershell -ExecutionPolicy Bypass .\deploy-site.ps1 -site_name test-site -app_name test-site -site_hostname test-site -code_folder ..\site
+          powershell -ExecutionPolicy Bypass .\tools\deploy-site.ps1 -site_name test-site -app_name test-site -site_hostname test-site -code_folder ..\site
         shell: cmd
