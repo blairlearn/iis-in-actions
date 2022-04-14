@@ -25,11 +25,41 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      # # Runs a set of commands using the runners shell
+      # - name: Run a multi-line script
+      #   run: |
+      #     set where iisreset
+      #     rem powershell -ExecutionPolicy Bypass .\tools\deploy-site.ps1 -site_name test-site -app_name test-site -site_hostname test-site -code_folder ..\site
+      #     choco list --source windowsfeatures
+      #     curl -vvvv http://localhost
+      #   shell: cmd
+
+      - name: Create a site
+        shell: powershell
         run: |
-          set where iisreset
-          rem powershell -ExecutionPolicy Bypass .\tools\deploy-site.ps1 -site_name test-site -app_name test-site -site_hostname test-site -code_folder ..\site
-          choco list --source windowsfeatures
-          curl -vvvv http://localhost
-        shell: cmd
+          $siteName = "TestSite";
+          $siteIISAppPool = "IIS:\AppPools\" + $siteName;
+
+          Write-Host "Create Directory"
+          $physicalLocation = $Env:systemdrive + "\inetpub\" + $siteName;
+          New-Item -path $physicalLocation -ItemType directory;
+
+
+          Write-Host "Create App Pool"
+          New-WebAppPool -Name $siteName;
+          Set-ItemProperty -Path "IIS:\AppPools\$siteName" -Name managedRuntimeVersion -Value "v4.0";
+
+          Write-Host "Create Site"
+          New-WebSite -Name $siteName -Port 80 -HostHeader $siteName -PhysicalPath $physicalLocation -ApplicationPool $siteName
+          #New-WebBinding -Name $siteName -Protocol "http" -Port 80 -HostHeader $siteName;
+
+          Copy-Item ./site/index.htm $physicalLocation
+          Get-ChildItem $physicalLocation -Name
+
+      - name: Whatsitdo
+        shell: bash
+        run: |
+          curl -vvvv --silent -H 'Host: TestSite' http://localhost:80/index.htm -o file
+          ls -lh
+          cat file
+
