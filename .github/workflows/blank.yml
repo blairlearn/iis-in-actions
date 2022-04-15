@@ -37,6 +37,7 @@ jobs:
       - name: Create a site
         shell: powershell
         run: |
+          Import-Module WebAdministration
           $siteName = "TestSite";
           $siteIISAppPool = "IIS:\AppPools\" + $siteName;
 
