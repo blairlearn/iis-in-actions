@@ -74,8 +74,6 @@ jobs:
           Write-Host "Site deets"
           Get-IISSite $siteName
 
-          Write-Host "En vars"
-          Dir $Env
 
       - name: Whatsitdo
         shell: bash
@@ -83,4 +81,9 @@ jobs:
           curl -vvvv --silent -H 'Host: TestSite' http://localhost:80/index.htm -o file
           ls -lh
           cat file
+
+      - name: En Vars
+        shell: cmd
+        run: |
+          set
 
