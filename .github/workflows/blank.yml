@@ -58,7 +58,7 @@ jobs:
           Get-IISSite $siteName
 
           Write-Host "Physical path"
-          $Site Get-IISSite $siteName
+          $Site = Get-IISSite $siteName
           $Site.Attributes["PhysicalPath"]
 
       - name: Whatsitdo
