@@ -62,7 +62,7 @@ jobs:
           $Site.Attributes["PhysicalPath"]
 
           # Seeming kludge
-          Set-ItemProperty "IIS:\Sites\$siteName" -name physicalPath -value $physicalLocation
+          Set-ItemProperty "IIS:\Sites\$siteName" -name "PhysicalPath" -value $physicalLocation
 
           Write-Host "Physical path"
           $Site = Get-IISSite $siteName
