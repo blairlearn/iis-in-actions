@@ -45,7 +45,7 @@ jobs:
           #$physicalLocation = $Env:systemdrive + "\inetpub\" + $siteName;
           $physicalLocation = $Env:GITHUB_WORKSPACE + "\site"
           Write-Host "Directory name: '$physicalLocation'."
-          New-Item -path $physicalLocation -ItemType directory;
+          #New-Item -path $physicalLocation -ItemType directory;
 
 
           Write-Host "Create App Pool"
