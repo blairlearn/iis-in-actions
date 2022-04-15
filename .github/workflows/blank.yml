@@ -53,8 +53,12 @@ jobs:
           New-WebSite -Name $siteName -Port 80 -HostHeader $siteName -PhysicalPath $physicalLocation -ApplicationPool $siteName
           #New-WebBinding -Name $siteName -Protocol "http" -Port 80 -HostHeader $siteName;
 
+          Write-Host "List philes in physical location"
           Copy-Item ./site/index.htm $physicalLocation
           Get-ChildItem $physicalLocation -Name
+
+
+          Get-IISSite $siteName
 
       - name: Whatsitdo
         shell: bash
