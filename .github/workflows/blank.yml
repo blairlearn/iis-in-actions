@@ -42,6 +42,7 @@ jobs:
 
           Write-Host "Create Directory"
           $physicalLocation = $Env:systemdrive + "\inetpub\" + $siteName;
+          Write-Host "Directory name: '$physicalLocation'."
           New-Item -path $physicalLocation -ItemType directory;
 
 
