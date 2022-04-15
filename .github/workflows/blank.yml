@@ -74,6 +74,9 @@ jobs:
           Write-Host "Site deets"
           Get-IISSite $siteName
 
+          Write-Host "En vars"
+          $Env
+
       - name: Whatsitdo
         shell: bash
         run: |
