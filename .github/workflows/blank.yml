@@ -59,7 +59,11 @@ jobs:
 
           Write-Host "Physical path"
           $Site = Get-IISSite $siteName
-          $Site.Attributes["PhysicalPath"]
+          $Site.Attributes["PhysicalPath"] = $physicalLocation
+          $Site = Get-IISSite $siteName
+
+          Write-Host "Site deets"
+          Get-IISSite $siteName
 
       - name: Whatsitdo
         shell: bash
