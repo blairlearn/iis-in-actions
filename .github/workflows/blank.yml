@@ -75,7 +75,7 @@ jobs:
           Get-IISSite $siteName
 
           Write-Host "En vars"
-          Get-ChildItem $Env
+          Dir $Env
 
       - name: Whatsitdo
         shell: bash
