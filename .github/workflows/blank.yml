@@ -97,8 +97,8 @@ jobs:
           $Site.Attributes["PhysicalPath"]
 
 
-          Write-Host "Site deets"
-          Get-IISSite $siteName
+          Write-Host "All Site deets"
+          Get-IISSite
 
 
       - name: Whatsitdo
