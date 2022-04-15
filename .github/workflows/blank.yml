@@ -42,7 +42,8 @@ jobs:
           $siteIISAppPool = "IIS:\AppPools\" + $siteName;
 
           Write-Host "Create Directory"
-          $physicalLocation = $Env:systemdrive + "\inetpub\" + $siteName;
+          #$physicalLocation = $Env:systemdrive + "\inetpub\" + $siteName;
+          $physicalLocation = $Env:GITHUB_WORKSPACE + "\site"
           Write-Host "Directory name: '$physicalLocation'."
           New-Item -path $physicalLocation -ItemType directory;
 
