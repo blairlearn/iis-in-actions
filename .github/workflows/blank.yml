@@ -40,26 +40,26 @@ jobs:
 
           # Start /w pkgmgr /iu:IIS-WebServerRole;IIS-WebServer;IIS-CommonHttpFeatures;IIS-StaticContent;IIS-DefaultDocument;IIS-DirectoryBrowsing;IIS-HttpErrors;IIS-HealthAndDiagnostics;IIS-HttpLogging;IIS-LoggingLibraries;IIS-RequestMonitor;IIS-Security;IIS-RequestFiltering;IIS-HttpCompressionStatic;IIS-WebServerManagementTools;IIS-ManagementConsole;WAS-WindowsActivationService;WAS-ProcessModel;WAS-NetFxEnvironment;WAS-ConfigurationAPI
 
-          #Enable-WindowsOptionalFeature IIS-WebServerRole
-          Enable-WindowsOptionalFeature IIS-WebServer
-          Enable-WindowsOptionalFeature IIS-CommonHttpFeatures
-          Enable-WindowsOptionalFeature IIS-StaticContent
-          Enable-WindowsOptionalFeature IIS-DefaultDocument
-          Enable-WindowsOptionalFeature IIS-DirectoryBrowsing
-          Enable-WindowsOptionalFeature IIS-HttpErrors
-          Enable-WindowsOptionalFeature IIS-HealthAndDiagnostics
-          Enable-WindowsOptionalFeature IIS-HttpLogging
-          Enable-WindowsOptionalFeature IIS-LoggingLibraries
-          Enable-WindowsOptionalFeature IIS-RequestMonitor
-          Enable-WindowsOptionalFeature IIS-Security
-          Enable-WindowsOptionalFeature IIS-RequestFiltering
-          Enable-WindowsOptionalFeature IIS-HttpCompressionStatic
-          Enable-WindowsOptionalFeature IIS-WebServerManagementTools
-          Enable-WindowsOptionalFeature IIS-ManagementConsole
-          Enable-WindowsOptionalFeature WAS-WindowsActivationService
-          Enable-WindowsOptionalFeature WAS-ProcessModel
-          Enable-WindowsOptionalFeature WAS-NetFxEnvironment
-          Enable-WindowsOptionalFeature WAS-ConfigurationAPI
+          Enable-WindowsOptionalFeature -Online -FeatureName IIS-WebServerRole  -All
+          Enable-WindowsOptionalFeature -Online -FeatureName IIS-WebServer  -All
+          Enable-WindowsOptionalFeature -Online -FeatureName IIS-CommonHttpFeatures  -All
+          Enable-WindowsOptionalFeature -Online -FeatureName IIS-StaticContent  -All
+          Enable-WindowsOptionalFeature -Online -FeatureName IIS-DefaultDocument  -All
+          Enable-WindowsOptionalFeature -Online -FeatureName IIS-DirectoryBrowsing  -All
+          Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpErrors  -All
+          Enable-WindowsOptionalFeature -Online -FeatureName IIS-HealthAndDiagnostics  -All
+          Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpLogging  -All
+          Enable-WindowsOptionalFeature -Online -FeatureName IIS-LoggingLibraries  -All
+          Enable-WindowsOptionalFeature -Online -FeatureName IIS-RequestMonitor  -All
+          Enable-WindowsOptionalFeature -Online -FeatureName IIS-Security  -All
+          Enable-WindowsOptionalFeature -Online -FeatureName IIS-RequestFiltering  -All
+          Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpCompressionStatic  -All
+          Enable-WindowsOptionalFeature -Online -FeatureName IIS-WebServerManagementTools  -All
+          Enable-WindowsOptionalFeature -Online -FeatureName IIS-ManagementConsole  -All
+          Enable-WindowsOptionalFeature -Online -FeatureName WAS-WindowsActivationService  -All
+          Enable-WindowsOptionalFeature -Online -FeatureName WAS-ProcessModel  -All
+          Enable-WindowsOptionalFeature -Online -FeatureName WAS-NetFxEnvironment  -All
+          Enable-WindowsOptionalFeature -Online -FeatureName WAS-ConfigurationAPI  -All
 
 
           Import-Module WebAdministration
