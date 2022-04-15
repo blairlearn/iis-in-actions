@@ -59,8 +59,15 @@ jobs:
 
           Write-Host "Physical path"
           $Site = Get-IISSite $siteName
-          $Site.Attributes["PhysicalPath"] = $physicalLocation
+          $Site.Attributes["PhysicalPath"]
+
+          # Seeming kludge
+          Set-ItemProperty "IIS:\Sites\$siteName" -name physicalPath -value $physicalLocation
+
+          Write-Host "Physical path"
           $Site = Get-IISSite $siteName
+          $Site.Attributes["PhysicalPath"]
+
 
           Write-Host "Site deets"
           Get-IISSite $siteName
